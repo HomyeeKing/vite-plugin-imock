@@ -24,8 +24,6 @@ function mocker(opts: IMockOptions = {}): PluginOption {
       server.middlewares.use((req, res, next) => {
         if (req.url?.startsWith(prefix)) {
           const key = resolve(`${dirName}${req.url}`, root)
-          console.log(key)
-
           try {
             clearRequireCache()
             // eslint-disable-next-line @typescript-eslint/no-var-requires
