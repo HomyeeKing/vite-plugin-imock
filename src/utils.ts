@@ -1,2 +1,2 @@
 import path from 'path'
-export const resolve = (name: string, root = __dirname) => path.resolve(root, name)
+export const resolve = (name: string, root = process.cwd()) => path.resolve(root, name)

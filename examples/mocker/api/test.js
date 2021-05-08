@@ -1,3 +1,6 @@
 module.exports = () => ({
-  data: 'hello world',
+  'data': 'hello world',
+  'mockjs|2': [{
+    test: 1,
+  }],
 })

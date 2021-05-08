@@ -15,7 +15,8 @@
   "keywords": [
     "vite",
     "plugin",
-    "mock"
+    "mock",
+    "mockjs"
   ],
   "author": "HomyeeKing",
   "license": "MIT",

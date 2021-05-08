@@ -2,7 +2,7 @@ import type { PluginOption } from 'vite'
 import { resolve } from './utils'
 import { IMockOptions } from './type'
 
-function mocker(opts: IMockOptions = {}): PluginOption {
+function mocker(opts: IMockOptions = { }): PluginOption {
   let mockjs: any
   const { dirName = 'mocker', prefix = '/api', root } = opts
   try {
