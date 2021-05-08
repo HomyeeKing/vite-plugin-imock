@@ -1,15 +1,16 @@
 import type { PluginOption } from 'vite'
-import { resolve } from '@/utils'
+import { resolve } from './utils'
+import { IMockOptions } from './type'
 
-function mocker(): PluginOption {
+function mocker(opts: IMockOptions = {}): PluginOption {
   let mockjs: any
-
+  const { dirName = 'mocker', prefix = '/api', root } = opts
   try {
     const resolved = require.resolve('mockjs')
     mockjs = require(resolved)
   }
   catch (e) {
-    throw new Error('vite-plugin-mocker requires mockjs to be present in the dependency tree.')
+    throw new Error('vite-plugin-imock requires mockjs to be present in the dependency tree.')
   }
   function clearRequireCache() {
     Object.keys(require.cache).forEach((key) => {
@@ -17,12 +18,14 @@ function mocker(): PluginOption {
     })
   }
   return {
-    name: 'vite-plugin-mocker',
+    name: 'vite-plugin-imock',
     enforce: 'pre',
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
-        if (req.url?.startsWith('/api')) {
-          const key = resolve(`mocker${req.url}`)
+        if (req.url?.startsWith(prefix)) {
+          const key = resolve(`${dirName}${req.url}`, root)
+          console.log(key)
+
           try {
             clearRequireCache()
             // eslint-disable-next-line @typescript-eslint/no-var-requires

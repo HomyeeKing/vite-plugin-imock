@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite'
-import Mocker from 'vite-plugin-imock'
+import Mocker from '../src/index'
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [Mocker()],
+  plugins: [Mocker({
+    root: __dirname,
+  },
+  )],
 })
