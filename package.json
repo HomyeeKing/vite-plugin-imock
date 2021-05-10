@@ -1,12 +1,15 @@
 {
   "name": "vite-plugin-imock",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Mock Data using Vite DevServer",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "example:dev":"npm -C examples run dev"
+    "dev": "npm run build -- --watch --ignore-watch examples",
+    "build": "tsup src/index.ts --dts --format cjs,esm",
+    "prepublishOnly": "npm run build",
+    "example:dev": "npm -C examples run dev"
   },
   "repository": {
     "type": "git",
@@ -33,6 +36,7 @@
     "@types/node": "^15.0.2",
     "eslint": "^7.25.0",
     "mockjs": "^1.1.0",
+    "tsup": "^4.10.1",
     "typescript": "^4.2.4",
     "vite": "^2.2.4"
   }
