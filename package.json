@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-imock",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Mock Data using Vite DevServer",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
