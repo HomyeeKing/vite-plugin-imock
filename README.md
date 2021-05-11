@@ -1,4 +1,4 @@
-# vite-plugin-mock
+# vite-plugin-imock
 
 
 # Feature
